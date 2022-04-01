@@ -5,12 +5,13 @@ dg = @(x) -((3*cos(3*x + 1) - x - 2)/2);
 
 %nollpunkterna som kan framställas genom fixpunktmetoden är -1.9852 and -0.63984
 
-% Sats: (1.6 i Sauer) Antag att g  ̈ar kontinuerligt differentierbar,
-% att x ∗ = g (x ∗) och att |g ′(x ∗)| = S < 1. F ̈or startgissningar
-% tillr ̈ackligt n ̈ara x ∗ konvergerar d ̊a fixpunktsiterationen linj ̈art mot
-% fixpunkten x ∗.
+% Fixpunktsiterationen har konvergensordning 1 dvs linjär konvergens
+% med konvergenshastighet S = |g ′(x ∗)| om 0 < S < 1
 
-if(dg(xs) < 1)
+% Svar: den är linjär och konvergerar för startpunkterna som uppfyller
+% kravet nedan
+
+if(abs(dg(xs)) < 1)
     fprintf("xs = " + xs)
     fprintf("\n" + "g(xs) = " + g(xs))
     fprintf("\n" + "g'(xs) = " + dg(xs))
