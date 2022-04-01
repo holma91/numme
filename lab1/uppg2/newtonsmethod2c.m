@@ -22,9 +22,10 @@ itercount = 0;
         y = f(x);
         itercount = itercount + 1;
         
-        
     end
   
+    % Vi ser att antalet ledande nollor ungefär dubbleras med varje
+    % iteration därför är konvergensen kvadratisk
 
 
     fprintf("\n" + "Iteration count: " + itercount);
