@@ -1,5 +1,5 @@
-function [x, itercount] = sekantmethod2e(f, x0, x1)
-
+function [x, itercount] = sekantmethod2e(x0, x1)
+f = @(x) x.^2 - 2*sin(3*x + 1) - 2;
 y0 = f(x0);
 y1 = f(x1);
 itercount = 0;
