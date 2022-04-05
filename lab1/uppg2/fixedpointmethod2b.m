@@ -1,8 +1,8 @@
 
-function [] = fixedpointmethod2b(g, x0)
+function [] = fixedpointmethod2b(x0)
 tol = 1e-8;
 itercount = 0;
-%g = @(x) 1/4 * (x.^2 - 2*sin(3*x + 1) - 2)+ x;
+g = @(x) 1/4 * (x.^2 - 2*sin(3*x + 1) - 2)+ x;
 
 %Only the zeropoints -1.9852 and -0.63984 can be found with the fixed point
 %method. 
