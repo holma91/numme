@@ -7,6 +7,9 @@
 
 % varfor gar det snabbare att losa med lu?
 % - https://stackoverflow.com/questions/34951048/gauss-jordan-elimination-versus-lu-decomposition
+% pga återanvändning. Man beräknar bara LU dekomposering en gång och
+% använder det sedan för varje b. Med Gauss måste man göra om arbetet för
+% varje b.
 % vilken metod loser problemet snabbast?
 % - Gles och loser LU problemet snabbast
 % 
