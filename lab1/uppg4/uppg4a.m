@@ -9,3 +9,5 @@ plot(x0 + r0*cos(theta), y0 + r0*sin(theta),'-')
 hold on
 plot(x1 + r1*cos(theta), y1 + r1*sin(theta), '-')
 axis equal
+
+% startgissningar (40, 50), (50, 30)
