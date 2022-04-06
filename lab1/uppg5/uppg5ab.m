@@ -14,3 +14,5 @@ xbel = xnod + x(1:2:end);
 ybel = ynod + x(2:2:end);
 
 trussplot(xbel, ybel, bars, 'red')
+hold on
+plot(xnod(1), ynod(1), "blue*")
