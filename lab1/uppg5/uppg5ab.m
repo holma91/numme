@@ -6,7 +6,7 @@ load eiffel1.mat
 trussplot(xnod, ynod, bars)
 hold on
 b = zeros(522, 1);
-b(1) = 1;
+b(522) = 1;
 
 x = A\b;
 
