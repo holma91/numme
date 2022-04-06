@@ -25,3 +25,5 @@ end
 % Det beror på, eftersom man kan välja en godtycklig startpunkt
 % med newtons metod som ger färre iterationer, samtidigt som man
 % också kan välja en som kräver fler iterationer.
+% Teoretiskt så har newtons metod högre konvergens än sekantmetoden
+% 1.62 respektive 2

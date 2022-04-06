@@ -11,14 +11,6 @@ x = [-5:0.01:5];
 %x=-3 och x=1
 
 plot(x, f(x))
-
-
-for i=-3: 2
-    if fzero(@(x)f(x),i) ~= fzero(@(x)f(x),i-1)
-        fzero(@(x)f(x),i)
-    end
-    end
-    
 grid on
 end
 

@@ -22,7 +22,7 @@ itercount = 0;
         itercount = itercount + 1;
         
     end
-  
+    % Konvergens:
     % Vi ser att antalet ledande nollor ungefär dubbleras med varje
     % iteration därför är konvergensen kvadratisk
 
