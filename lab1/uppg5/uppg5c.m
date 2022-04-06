@@ -2,18 +2,18 @@ load eiffel4.mat
 N = size(A, 1);
 b = randn(N ,1); % Godtyckligt b
 tic;
-i = 0;
-while i < 10
+%i = 0;
+%while i < 10
     i = i + 1;
     x = A\b;
-end
+%end
 toc
 tic;
-i = 0;
-while i < 10
+%i = 0;
+%while i < 10
     i = i + 1;
     x2 = inv(A)*b;
-end
+%end
 toc
 
 % file - N - A\b - inv(A)*b
@@ -30,4 +30,5 @@ toc
 % om vi bara iterarar en gång kan man inte få något bra resultat
 % eftersom att "provstorleken" är för lite. Om vi ökar "provstorleken"
 % så närmar sig de experimentella resultat de teoretiska.
-% vi testar detta ovan med while loops med 10 iterationer
+% vi testar detta ovan med while loops med 10 iterationer som nu är
+% kommenterade.
