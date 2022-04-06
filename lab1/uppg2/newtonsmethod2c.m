@@ -13,17 +13,17 @@ itercount = 0;
     y = f(x);
     
     while abs(y) > tol
-        xs = x;
+        xs = x; %spara x värde
         h = y/df(x);
         x = x - h ;
-        K = abs(x - xs);
+        K = abs(x - xs); % diff mellan ny och gammal x
         fprintf("\n iter " + itercount + " : " + K)
         y = f(x);
         itercount = itercount + 1;
         
     end
     % Konvergens:
-    % Vi ser att antalet ledande nollor ungefär dubbleras med varje
+    % Vi ser att antalet ledande nollor ungefär dubbleras för K med varje
     % iteration därför är konvergensen kvadratisk
 
 
