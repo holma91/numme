@@ -4,15 +4,15 @@
 % eiffel3.mat - 14.306010s -  2.866646s  - 1.157011s    - 0.123045s
 % eiffel4.mat - ...        -  47.129019s - 9.860736s    - 1.692025s
 
-% varfor gar det snabbare att losa med lu?
-% - https://stackoverflow.com/questions/34951048/gauss-jordan-elimination-versus-lu-decomposition
+
+% varfor går det snabbare att lösa med lu?
 % pga återanvändning. Man beräknar bara LU dekomposering en gång och
 % använder det sedan för varje b. Med Gauss måste man göra om arbetet för
 % varje b.
-% vilken metod loser problemet snabbast?
-% - Gles och loser LU problemet snabbast
+% vilken metod löser problemet snabbast?
+% - Gles+LU löser problemet snabbast
 % 
-% for vilken modell blir tidsvinsten storst?
-% - rent tidsmassigt: modell 4 eftersom att den ar storst.
-%   om nagot tar 100s och du fixar en 2x improvement - du har tjanat 50s
-%   om nagot tar 1s och du fixar en 2x improvement - du har tjanat 0.5s
+% for vilken modell blir tidsvinsten störst?
+% - rent tidsmässigt: modell 4 eftersom att den är störst.
+%   om något tar 100s och du fixar en 2x improvement - du har tjänat 50s
+%   om något tar 1s och du fixar en 2x improvement - du har tjänat 0.5s

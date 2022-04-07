@@ -1,10 +1,15 @@
-% solve Ax=b
-% A = styvhetsmatris
-% b innehaller krafter
-% x innehaller forskjutningar
+%{
+uppgift a):
+solve Ax=b
+A = styvhetsmatris
+b innehaller krafter
+x innehaller forskjutningar
+%}
 load eiffel1.mat
 trussplot(xnod, ynod, bars)
 hold on
+
+% uppgift b):
 b = zeros(522, 1);
 b(522) = 1;
 
