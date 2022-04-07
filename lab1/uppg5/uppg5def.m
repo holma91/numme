@@ -1,4 +1,3 @@
-
 % file        - naiv       - lu          - gles (ej lu) - gles+lu
 % eiffel1.mat - 1.815970s  -  0.533932s  - 0.271383s    - 0.065146s
 % eiffel2.mat - 6.823214s  -  1.015807s  - 0.740172s    - 0.089096s
@@ -7,6 +6,9 @@
 
 % varfor gar det snabbare att losa med lu?
 % - https://stackoverflow.com/questions/34951048/gauss-jordan-elimination-versus-lu-decomposition
+% pga återanvändning. Man beräknar bara LU dekomposering en gång och
+% använder det sedan för varje b. Med Gauss måste man göra om arbetet för
+% varje b.
 % vilken metod loser problemet snabbast?
 % - Gles och loser LU problemet snabbast
 % 

@@ -4,12 +4,14 @@ function [P, iter] = uppg4b(Xa, Xb, Xstart, La, Lb)
     P = Xstart; % Startgissning
     
     
-    tol = 1e-5; hnorm = 1; iter = 1;
+    tol = 1e-10; hnorm = 1; iter = 0; 
     while hnorm > tol
         iter = iter + 1;
         h = -J(P)\F(P);
         P = P + h;
         hnorm = norm(h);
-        disp([iter P(1) P(2) hnorm])
+        
     end
 
+% vi ser att det ar kvadratisk konvergens eftersom antalet 
+% nollor dubblas for varje iteration
