@@ -3,8 +3,8 @@ function [P, iter] = uppg4b(Xa, Xb, Xstart, La, Lb)
     J = @(x) [-2*(Xa(1)-x(1)), -2*(Xa(2)-x(2)); -2*(Xb(1)-x(1)), -2*(Xb(2)-x(2))];
     P = Xstart;
     
-    
     tol = 1e-10; hnorm = 1; iter = 0; 
+    % newtons metod för flera variabler
     while hnorm > tol
         iter = iter + 1;
         h = -J(P)\F(P);
