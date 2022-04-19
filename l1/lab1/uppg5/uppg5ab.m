@@ -11,7 +11,7 @@ hold on
 
 % uppgift b):
 b = zeros(522, 1);
-b(521) = 1;
+b(522) = 1;
 
 x = A\b;
 
@@ -20,4 +20,4 @@ ybel = ynod + x(2:2:end);
 
 trussplot(xbel, ybel, bars, 'red')
 hold on
-plot(xnod(261), ynod(261), "blue*")
+plot(xnod(1), ynod(1), "blue*")
