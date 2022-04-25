@@ -1,5 +1,6 @@
 % a) Integralens värde beräknat analytiskt är ungefär 3.4477
 
+
 function Z = upg3ab(a,b,h)
 f = @(x)(x+3).^0.5;
 x = a:h:b;

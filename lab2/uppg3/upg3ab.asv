@@ -1,10 +1,16 @@
 % a) Integralens värde beräknat analytiskt är ungefär 3.4477
 
-function Z = upg3ab(a,b,h)
+
+function Z = upg3ab(a,b)
+for h = 1
+I = 3.4477;
 f = @(x)(x+3).^0.5;
 x = a:h:b;
 y = f(x);
 Z = h*(sum(y)-y(1)/2-y(end)/2);
+
+Q = abs(Z - I)
+plot(Q)
 end
 
 
@@ -14,7 +20,7 @@ end
 % h = 0.25 : 3.4472
 % h = 0.125 : 3.4476
 % h = 0.0625 : 3.4477
-% Ja, apr
+% Ja, approximationen verkar konvergera då h går mot 0
 
 
 
