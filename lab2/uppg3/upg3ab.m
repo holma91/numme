@@ -1,4 +1,4 @@
-% a) Integralens värde beräknat analytiskt är ungefär 3.4477
+% a) Integralens värde beräknat analytiskt är ungefär 3.447715250169207
 
 
 function Z = upg3ab(a,b,h)
