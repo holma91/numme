@@ -1,34 +1,33 @@
 
 
-% h = 0.4 : 4.206106345638666e+04
-% h/2 : 4.206102487027625e+04
-% h/4 : 4.206101522369300e+04
+% h = 0.4 : 1.050350632301338e+04
+% h/2 : 1.051194940029147e+04
+% h/4 : 1.051411476615779e+04
 
 
-function K = upg4b(h)
+function M = upg4b(h)
 
-f = @(t) (exp(1).^(-1*(t).^2)*calcMax(40 + t))/exp(1).^(-1*(t).^2);
+f = @(t) (exp(-t.^2)*genMax(40 + t));
 a = -2;
 b = 2;
 
-area = 0;
+taljare = 0;
 n = (b-a)/h; % antal repetetioner som krävs
 reps = 0;
 
 while reps < n
 
-    delArea = ((f(-2 + reps*h) + f(-2 + (reps + 1)*h)) /2) *h;
-    area = area + delArea;
+    delTaljare = ((f(-2 + reps*h) + f(-2 + (reps + 1)*h)) /2) *h;
+    taljare = taljare + delTaljare;
     reps = reps + 1;
 
 end
-
-K = area;
+M = taljare/upg4a(0.0001);
 
 end
 
 
-function res = calcMax(u)
+function res = genMax(u)
 gen = generator(u, 0);
 res = max(gen);
 end
