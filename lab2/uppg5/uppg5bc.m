@@ -1,5 +1,4 @@
-% svar a) (20.0396, 31.7967)
-theta = [20.0396, 31.7967];
+theta = [1.1901; 0.3807];
 alfa = 3;
 beta = 0.7;
 gamma = 4;
@@ -13,9 +12,9 @@ f = @(t,v) [
     -alfa*(v(3)-theta(2))-gamma*(v(4)+abs(v(2)))+beta*sin(w*t)
     ];
 
-v = [pi/2; 0; pi/6; 0]; % begynnelsevektor
 
-%v = [pi/2; pi/6]; % begynnelsevektor
+v = [pi/2; 0; pi/6; 0]; % begynnelsevektor
+% v = [0; 0]; % begynnelsevektor
 
 t0 = 0;
 T = 15;
@@ -36,6 +35,6 @@ for i=1:n
     
     v_vek(i+1, :) = v; % spara nuvarande värde på v - behövs bara för att plotta
     if (mod(i, 10)==1)
-        plot_robotarm(v)
+        plot_robotarm(v(1:2))
     end
 end

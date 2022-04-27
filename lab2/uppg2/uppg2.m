@@ -23,6 +23,7 @@ function [P, iter] = find_coordinates(Xa, Xb, Xc, Xstart, La, Lb, Lc)
     
     f = @(x,y) [La.^2 - (x-Xa(1)).^2 - (y - Xa(2)).^2;Lb.^2 - (x-Xb(1)).^2 - (y - Xb(2)).^2; Lc.^2 - (x-Xc(1)).^2 - (y - Xc(2)).^2];
     % varfor deriverar man?
+    % JAKOBIANEN!
     fp = @(x,y) [-2*(x-Xa(1)) -2*(y-Xa(2)); -2*(x - Xb(1)) -2*(y - Xb(2)); -2*(x-Xc(1)) -2*(y-Xc(2))]; %derivata
     
 
