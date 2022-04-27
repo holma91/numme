@@ -1,41 +1,57 @@
 % vi anvander gauss-newton darfor att vi har fler ekvationer an okanda
 % 3 ekvationer, 2 okanda
 
-function [P, iter] = uppg4(Xa, Xb, Xc, Xstart, La, Lb, Lc)
+Xa = [93; 63];
+Xb = [6; 16];
+Xc = [20, 83];
+Xstart = [100; 20]; % startgissning
+La = 55.1;
+Lb = 46.2;
+Lc = 46.2;
+
+find_coordinates(Xa, Xb, Xc, Xstart, La, Lb, Lc);
+
+%b)
+
+%kod
+
+function [P, iter] = find_coordinates(Xa, Xb, Xc, Xstart, La, Lb, Lc)
+    % plot the circles
+    circle(Xa(1), Xa(2), La);
+    circle(Xb(1), Xb(2), Lb);
+    circle(Xc(1), Xc(2), Lc);
     
-    % hur hittar man F i gauss-newtons metod?
-    F = @(x) [(Xa(1)-x(1)).^2+(Xa(2)-x(2)).^2 - La.^2;
-        (Xb(1)-x(1)).^2+(Xb(2)-x(2)).^2 - Lb.^2;
-        (Xc(1)-x(1)).^2+(Xc(2)-x(2)).^2 - Lc.^2];
-
-    % FF = @(c) (c(1) - x(1)).^2 + (c(2) - x(2)).^2 - (c(3)).^2;
-
-    % denna jakobian ar framtagen med newtons metod
-    % hur hittar man jakobianen i gauss-newtons metod???
-    J = @(x) [-2*(Xa(1)-x(1)), -2*(Xa(2)-x(2)); 
-        -2*(Xb(1)-x(1)), -2*(Xb(2)-x(2));
-        -2*(Xc(1)-x(1)), -2*(Xc(2)-x(2))];
-
-    P = Xstart;
-
-    %% Gauss-Newton
-
-    g = @(c) c(1) + c(2)*sin(c(4)*t) + c(3)*cos(c(5)*t);
-    % ?
-    F = @(c) [g(c) - h];
-    % bestam jakobianen
-    J = @(c) [ones(size(t)), sin(t*c(4)), cos(t*c(5)), c(2)*t.*cos(t*c(4)), -c(3)*t.*sin(t*c(5))];
+    f = @(x,y) [La.^2 - (x-Xa(1)).^2 - (y - Xa(2)).^2;Lb.^2 - (x-Xb(1)).^2 - (y - Xb(2)).^2; Lc.^2 - (x-Xc(1)).^2 - (y - Xc(2)).^2];
+    % varfor deriverar man?
+    fp = @(x,y) [-2*(x-Xa(1)) -2*(y-Xa(2)); -2*(x - Xb(1)) -2*(y - Xb(2)); -2*(x-Xc(1)) -2*(y-Xc(2))]; %derivata
     
-    J
-    % startgissning -> baserad på MKM lösning
-    c = [c; 0.5; 0.5]
+
+    x = Xstart(1);
+    y = Xstart(2);
     
-    diff = t;
-    
-    while norm(diff) > 1e-6
+    tol = 1e-8; hnorm = 1; iterationer = 0;
+    % gauss-newton
+    while hnorm > tol
        
-        diff = J(c)\F(c);  % minsta-kvadratmetod
-        c = c - diff;
-        
+        h = -fp(x,y)\f(x,y);
+        x = x + h(1); 
+        y = y + h(2);
+        hnorm = norm(h);
+        disp([iterationer x y hnorm])
+        iterationer = iterationer + 1;
     end
+    plot(x, y, "O");
+    P = [x; y];
+    iter = iterationer;
+    return;
+end
+
+function h = circle(x0,y0,r)
+    hold on
+    th = 0:pi/50:2*pi;
+    xunit = r * cos(th) + x0;
+    yunit = r * sin(th) + y0;
+    h = plot(xunit, yunit);
+    hold on;
+end
 

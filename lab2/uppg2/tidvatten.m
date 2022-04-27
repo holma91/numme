@@ -20,7 +20,7 @@ plot(tt, g(tt), 'LineWidth', 2)
 
 %% Gauss-Newton
 
-g = @(c) c(1) + c(2)*sin(c(4)*t) + c(3)*cos(c(5)*t);
+g = @(c) c(1) + c(2)*sin(t*c(4)) + c(3)*cos(t*c(5));
 % ?
 F = @(c) [g(c) - h];
 % bestam jakobianen

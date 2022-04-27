@@ -1,0 +1,7 @@
+% svar a) (20.0396, 31.7967)
+theta = [20.0396, 31.7967];
+
+f=@(t,v) [
+    v(2); 
+    -alfa*(v(1)-theta(1))-gamma*v(2)+beta
+    ]; % HL (kolonnevktor)
