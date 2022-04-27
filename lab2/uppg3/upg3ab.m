@@ -1,6 +1,7 @@
 % a) Integralens värde beräknat analytiskt är ungefär 3.447715250169207
+% (16-4*sqrt(2))/3
 
-
+% a = -1, b = 1
 function Z = upg3ab(a,b,h)
 f = @(x)(x+3).^0.5;
 x = a:h:b;
