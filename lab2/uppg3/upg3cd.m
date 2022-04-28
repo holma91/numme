@@ -47,7 +47,8 @@ end
 % Noggrannhetsordningen för en numerisk metod som använder sig av
 % steglängden h. Enligt teorin ska förhållandet mellan en approximativ
 % lösning med steglängd h och en med steglängd h/2 vara ungefär 2^p. Där p
-% är noggrannhetsordning vilket är 2 för trapetsreglen. 
+% är noggrannhetsordning vilket är 2 för trapetsreglen. Därför ska felet ha
+% en faktor om 4 vid varje halvering på h.
 
 % Så faktorn som vi förväntar oss är ungefär 2^2 vilket är 4. Och som vi ser verkar
 % detta ungefär stämma överens med vårt svar. (Vi får detta värde om vi

@@ -2,13 +2,16 @@
 % (16-4*sqrt(2))/3
 
 % a = -1, b = 1
+
 % Trapetsreglen
 function Z = upg3ab(a,b,h)
 f = @(x)(x+3).^0.5;
 x = a:h:b;
 y = f(x);
-Z = h*(sum(y)-y(1)/2-y(end)/2); 
+Z = h*(sum(y)-y(1)/2-y(end)/2); %subtraherar bort hälften av f(start) och f(end) 
+                                % eftersom vi summerar allt
 end
+
 
 % b)     
 % h = 1 : 3.4392
