@@ -1,18 +1,18 @@
 
 h = [1, 0.5, 0.25, 0.125, 0.0625];
 
-Q0 = 0;
+T0 = 0;
 Z0 = 0; %För noggrannhetsordningarna
 
 
 for i = 1 : 5
     I = (16-4*sqrt(2))/3;
     
-    Q = abs(upg3ab(-1,1,h(i)) - I); % T(h)
+    T = abs(upg3ab(-1,1,h(i)) - I); % T(h)
     
     % För att se noggrannhetsordningen för trapetsreglen
-    %K = Q0 / Q
-    %Q0 = Q;
+    %K = T0 / T
+    %T0 = T;
 
     % upg 3d) Richardson-extrapolation
     R = (2.^2*upg3ab(-1,1,h(i)/2) - upg3ab(-1,1,h(i))) / (2.^2 - 1); % R(h)
@@ -23,7 +23,7 @@ for i = 1 : 5
     %K = Z0 / Z
     %Z0 = Z;
   
-    loglog(h(i), Q,'*');
+    loglog(h(i), T,'*');
     hold on
     loglog(h(i), Z, 'o');
     hold on

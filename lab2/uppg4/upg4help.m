@@ -21,6 +21,4 @@ end
  
 % differans mellan då h = 0.000001 och h = 0.00001 = 1.549204698676476e-04
 % vilket är ett fel som är betydligt mindre än i b) och trots gick metoden snabbare att genomföra. 
-% Simpsons metod har också en noggrannhetsordning på 4 vilket innebär att
-% en halvering för h ska göra att felet i approximationen för täljaren blir
-% 1/16 så stor.
+

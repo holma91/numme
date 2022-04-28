@@ -17,12 +17,12 @@ reps = 0;
 
 while reps < n
 
-    delTaljare = ((f(-2 + reps*h) + f(-2 + (reps + 1)*h)) /2) *h;
-    taljare = taljare + delTaljare;
+    subTaljare = ((f(-2 + reps*h) + f(-2 + (reps + 1)*h)) /2) *h;
+    taljare = taljare + subTaljare;
     reps = reps + 1;
 
 end
-M = taljare/upg4a(0.0001);
+M = taljare/upg4a(0.0001); 
 
 end
 
