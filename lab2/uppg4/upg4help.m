@@ -19,6 +19,8 @@ end
 
 %c)
  
-% differans mellan då h = 0.000001 och h = 0.00001 = 1.549204698676476e-04
-% vilket är ett fel som är betydligt mindre än i b) och trots gick metoden snabbare att genomföra. 
+% differans mellan då h = 0.1 och h = 0.2 = 2.093042413869625
+% vilket är ett fel som är mindre än i b). Detta beror på att noggrannhetsordningen i täljaren
+% för simpson är 4 medan trapetsregeln är 2. Det är bättre att använda
+% simpson eftersom den konvergerar snabbare vid små h vid halvering på h.
 

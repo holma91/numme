@@ -7,27 +7,20 @@
 
 function M = upg4b(h)
 
-f = @(t) (exp(-t.^2)*genMax(40 + t));
-a = -2;
-b = 2;
+    f = @(t) (exp(-t.^2)*genMax(40 + t));
+    a = -2;
+    b = 2;
 
-taljare = 0;
-n = (b-a)/h; % antal repetetioner som krävs
-reps = 0;
+    %Räkna täljaren med trapets
+    taljare = h*(f(a)/2 + sum(arrayfun(f, (a+h:h:b-h))) + f(b)/2); 
 
-while reps < n
-
-    subTaljare = ((f(-2 + reps*h) + f(-2 + (reps + 1)*h)) /2) *h;
-    taljare = taljare + subTaljare;
-    reps = reps + 1;
-
-end
-M = taljare/upg4a(0.0001); 
+    % räkna M 
+    M = taljare/upg4a(0.0001); 
 
 end
 
 
 function res = genMax(u)
-gen = generator(u, 0);
-res = max(gen);
+    gen = generator(u, 0);
+    res = max(gen);
 end
