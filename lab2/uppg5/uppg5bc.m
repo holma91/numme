@@ -17,7 +17,8 @@ v = [pi/2; 0; pi/6; 0]; % begynnelsevektor
 % v = [0; 0]; % begynnelsevektor
 
 t0 = 0;
-T = 15;
+% T = 15;
+T = 30;
 h = 0.005; % steglängd
 n = (T-t0)/h; % antal steg till sluttid
 

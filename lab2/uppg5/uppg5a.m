@@ -1,3 +1,5 @@
+% Xstart = [pi/2; pi/6]'
+
 function P = uppg5a(Xstart)
     F = @(x) [1*cos(x(1)) + 1*cos(x(2)) - 1.3; 1*sin(x(1)) + 1*sin(x(2)) - 1.3];
     J = @(x) [-sin(x(1)), -sin(x(2)); cos(x(1)), cos(x(2))];

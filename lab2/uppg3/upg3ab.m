@@ -3,10 +3,10 @@
 
 % a = -1, b = 1
 function Z = upg3ab(a,b,h)
-f = @(x)(x+3).^0.5;
-x = a:h:b;
-y = f(x);
-Z = h*(sum(y)-y(1)/2-y(end)/2);
+    f = @(x)(x+3).^0.5;
+    x = a:h:b;
+    y = f(x);
+    Z = h*(sum(y)-y(1)/2-y(end)/2);
 end
 
 
