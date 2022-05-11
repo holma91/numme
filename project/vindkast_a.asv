@@ -1,9 +1,7 @@
-
-
 c = 0.069;
 v_vind = 5;
-a = @(z) v_vind + 0.25*(z);
-q = @(u) c*sqrt(u(2)^2 + (u(4) - a(u(5))^2) + u(6)^2);
+a = @(u) v_vind + 0.25*(u(5));
+q = @(u) c*sqrt(u(2).^2 + (u(4) - a(u)).^2 + u(6).^2);
 
 f = @(u) [
     u(2);
@@ -17,7 +15,7 @@ f = @(u) [
 uStart = [0, 25*cos(pi/6), 0, 0, 1.5, 25*sin(pi/6)]';
 
 
-N = 100;
+N = 105;
 h = 0.02;
 
 u_vek = zeros(N+1, 6); % spara resultat för alla tidssteg för att plotta
@@ -35,8 +33,9 @@ for i = 1:N
     u = u + h*(k1 + 2*k2 + 2*k3 + k4)/6;
     u_vek(i+1, :) = u;
 
-    if u(5) < 0 && !lock
+    if u(5) < 0
         stop = i;
+        break;
     end
 end
 
@@ -47,6 +46,3 @@ xlabel('x');
 ylabel('y');
 zlabel('z');
 grid on;
-
-    
-    
