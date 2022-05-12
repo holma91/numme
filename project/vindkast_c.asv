@@ -30,11 +30,13 @@ vinkel_0 = 0;
 vinkel_1 = pi/2;
 diffx = inf;
 tol = 1e-10;
+iterationer = 0;
 
-while abs(vinkel_1 - vinkel_0) > tol
-    
+while abs(diffx) > tol
+    iterationer = iterationer + 1;
 
-    % begynnelsevarden
+    % begynnelsevarden, omskrivna till polara koordinater
+    % nagot kan vara fel har
     vv0 = [0; cos(vinkel_0) * cos(v_utkast) * 25; 0; -(sin(vinkel_0) * 25 * cos(v_utkast)); 1.5; sin(v_utkast)* 25];
     vv1 = [0; cos(vinkel_1) * cos(v_utkast) * 25; 0; -(sin(vinkel_1) * 25 * cos(v_utkast)); 1.5; sin(v_utkast)* 25];
 
@@ -42,27 +44,30 @@ while abs(vinkel_1 - vinkel_0) > tol
     [plot_vec0, nedslagsplats0] = RK4(ff, vv0, t0, h, t);
     [plot_vec1, nedslagsplats1] = RK4(ff, vv1, t0, h, t);
 
-    % vilka y-varden landar vi pa?
+    % vilket y-varde landar vi pa?
+    % hur gor vi sa att y gar mot 0?
     y0 = nedslagsplats0(2);
     y1 = nedslagsplats1(2);
 
     % sekantmetoden
     vinkel_0_prev = vinkel_0;
+%     vinkel_2 = vinkel_1-((y1*(vinkel_1-vinkel_0))/(y1-y0));
     vinkel_0 = vinkel_1;
     vinkel_1 = vinkel_1-((y1*(vinkel_1-vinkel_0_prev))/(y1-y0));
+    diffx = vinkel_1 - vinkel_0;
 
-    disp([vinkel_0 vinkel_1 vinkel_1 - vinkel_0]);
+
+
+    disp([iterationer vinkel_0 vinkel_1 diffx]);
+
+    disp("nedslagsplats0:");
+    disp(nedslagsplats0);
+
+    disp("nedslagsplats1:");
+    disp(nedslagsplats1);
 
 end
 
-disp("vinkel:");
-disp(vinkel_1); % 0.3753 radianer = 21.50 grader
-disp("nedslagsplats1:");
-disp(nedslagsplats1); % (16.5962, 0, 0)
-plot3(plot_vec1(:, 1), plot_vec1(:, 3), plot_vec1(:, 5), '-');
-xlabel('x');
-ylabel('y');
-zlabel('z');
-grid on;
+disp(vinkel_1);
 
 
