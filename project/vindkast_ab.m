@@ -17,7 +17,7 @@ ff = @(u) [
 
 
 t0 = 0;
-h = 0.002;
+h = 0.01;
 t = 4;
 
 [plot_vec, nedslagsplats] = RK4(ff, uStart, t0, h, t, 2);

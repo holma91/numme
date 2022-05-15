@@ -5,6 +5,7 @@ a = @(u) v_vind + 0.25*(u(5));
 q = @(u) c*sqrt(u(2).^2 + (u(4) - a(u)).^2 + u(6).^2);
 vinkel = 0.3753; % vinkeln fran c)
 v_utkast = pi/6; % vertikala utkastvinkeln
+dampnings_faktor = 0.8;
 
 ff = @(u) [
     u(2);
@@ -40,9 +41,9 @@ for i = 1:N
 
     % check previous z value to avoid it being negative two times in a row
     if u(5) < 0 && u_vec(i, 5) > 0
-        u(2) = 0.8 * u(2);
-        u(4) = 0.8 * u(4);
-        u(6) = -0.8 * u(6);
+        u(2) = dampnings_faktor * u(2);
+        u(4) = dampnings_faktor * u(4);
+        u(6) = -dampnings_faktor * u(6);
         bounceCounter = bounceCounter + 1;
     end
     
