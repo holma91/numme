@@ -1,7 +1,8 @@
 %% RK4 with Interpolation
 
-function [plot_vec, nedslagsplats] = RK4 (ff, uStart, t0, h, t)
+function [plot_vec, nedslagsplats] = RK4 (ff, uStart, t0, h, t, h_divided_by)
     N = (t - t0)/h;
+    disp("N = " + N);
     
     u_vec = zeros(N+1, 6); % spara resultat för alla tidssteg för att plotta
     u_vec(1, :) = uStart; 
@@ -11,8 +12,8 @@ function [plot_vec, nedslagsplats] = RK4 (ff, uStart, t0, h, t)
     
     for i = 1:N
         k1 = ff(u);
-        k2 = ff(u + h/2*k1);
-        k3 = ff(u + h/2*k2);
+        k2 = ff(u + h/h_divided_by*k1);
+        k3 = ff(u + h/h_divided_by*k2);
         k4 = ff(u + h*k3);
         
         u = u + h*(k1 + 2*k2 + 2*k3 + k4)/6;
@@ -25,8 +26,13 @@ function [plot_vec, nedslagsplats] = RK4 (ff, uStart, t0, h, t)
         end
     end
     
-    vec = u_vec(1:stop, :);
-    
+    if (stop > 0)
+        vec = u_vec(1:stop, :);
+    else
+        % means that z never got below 0
+        vec = u_vec(:, :);
+    end
+
     % interpolation
     point1 = [vec(end, 1), vec(end, 3), vec(end, 5)]; % last point before z=0
     point2 = [u(1), u(3), u(5)]; % first point after z=0

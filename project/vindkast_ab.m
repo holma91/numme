@@ -5,6 +5,7 @@ q = @(u) c*sqrt(u(2).^2 + (u(4) - a(u)).^2 + u(6).^2);
 uStart = [0, 25*cos(pi/6), 0, 0, 1.5, 25*sin(pi/6)]';
 
 
+% system av ODEs
 ff = @(u) [
     u(2);
     -q(u)*u(2);
@@ -19,7 +20,7 @@ t0 = 0;
 h = 0.002;
 t = 4;
 
-[plot_vec, nedslagsplats] = RK4(ff, uStart, t0, h, t);
+[plot_vec, nedslagsplats] = RK4(ff, uStart, t0, h, t, 2);
 
 % a)
 plot3(plot_vec(:, 1), plot_vec(:, 3), plot_vec(:, 5), '-');

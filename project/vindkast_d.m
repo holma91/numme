@@ -1,3 +1,4 @@
+% I grader:
 % vvind = 4.75, v = 23.75,  20.0944
 % vvind = 5.25, v = 26.25, 22.9324
 % vvind = 4.75, v = 26.25, 20.7892
@@ -7,6 +8,9 @@
 % vvind = 5, v = 25, 21,5039
 % vvind = 4.75, v = 25, 20.4490
 % vvind = 5.25, v = 25, 22.5818
+
+
+% räknar i radianer
 
 % all possible combinations (vind, hastighet)
 combinations = [
@@ -35,17 +39,12 @@ for i=1:size(combinations, 1)
     end
 end
 
-disp(["largest err vinkel:" largest_err_vinkel]);
-disp(["smallest err vinkel:" smallest_err_vinkel]);
-disp(["actual vinkel:" actual_vinkel]);
-
 if abs(smallest_err_vinkel - actual_vinkel) > abs(largest_err_vinkel - actual_vinkel)
     err = abs(smallest_err_vinkel - actual_vinkel);
 else
     err = abs(largest_err_vinkel - actual_vinkel);
 end
-disp(["err:" err]);
 
 avvikelse = (err/actual_vinkel);
-disp(["avvikelse:" avvikelse]); %cirka 6.64%
+disp("avvikelse: " + avvikelse * 100 + "%"); %cirka 6.64%
 

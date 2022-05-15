@@ -46,7 +46,7 @@ for i = 1:N
         bounceCounter = bounceCounter + 1;
     end
     
-    if bounceCounter == 5
+    if bounceCounter == 6
         stop = i;
         break
     end

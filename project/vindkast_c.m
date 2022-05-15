@@ -51,7 +51,7 @@ function vinkel_1 = vindkast_c(v_vind, v0, plot_bana)
 
     if plot_bana
         disp("vinkel:");
-        disp(vinkel_1); % 0.3753 radianer = 21.50 grader
+        disp(vinkel_1);
         disp("nedslagsplats1:");
         disp(nedslagsplats1); % (16.5962, 0, 0)
         plot3(plot_vec1(:, 1), plot_vec1(:, 3), plot_vec1(:, 5), '-');
@@ -62,4 +62,6 @@ function vinkel_1 = vindkast_c(v_vind, v0, plot_bana)
     end
 
 end
+
+% 21.50311 in degrees, 0.3753 in radians
 
