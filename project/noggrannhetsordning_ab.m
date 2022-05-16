@@ -38,20 +38,31 @@ ff = @(u) [
     -9.81 - q(u)*u(6);
 ];
 
+% t0 = 0;
+% t = 4;
+% N = 200;
+% h = (t-t0)/N;
+
 t0 = 0;
+h = 0.01;
 t = 1;
-N = 200;
-h = (T-t0)/N;
+
+N = (t - t0)/h;
 
 [pv_h, u_h] = RK4(ff, uStart, t0, h, t, 1, N); % rk med h
-[pv_h2, u_h2] = RK4(ff, uStart, t0, h, t, 2, N*2); % rk med h/2
-[pv_h4, u_h4] = RK4(ff, uStart, t0, h, t, 4, N*4); % rk med h/4
-[pv_h8, u_h8] = RK4(ff, uStart, t0, h, t, 8, N*8); % rk med h/8
+h = h/2;
+[pv_h2, u_h2] = RK4(ff, uStart, t0, h, t, 2, N); % rk med h/2
+h = h/4;
+[pv_h4, u_h4] = RK4(ff, uStart, t0, h, t, 4, N); % rk med h/4
+h = h/8;
+[pv_h8, u_h8] = RK4(ff, uStart, t0, h, t, 8, N); % rk med h/8
 
-u_h = [pv_h(end-2, 1) pv_h(end-2, 3) pv_h(end-2, 5)];
-u_h2 = [pv_h2(end-2, 1) pv_h2(end-2, 3) pv_h2(end-2, 5)];
-u_h4 = [pv_h4(end-2, 1) pv_h4(end-2, 3) pv_h4(end-2, 5)];
-u_h8 = [pv_h8(end-2, 1) pv_h8(end-2, 3) pv_h8(end-2, 5)];
+%disp(pv_h);
+
+u_h = [pv_h(end-1, 1) pv_h(end-1, 3) pv_h(end-1, 5)];
+u_h2 = [pv_h2(end-1, 1) pv_h2(end-1, 3) pv_h2(end-1, 5)];
+u_h4 = [pv_h4(end-1, 1) pv_h4(end-1, 3) pv_h4(end-1, 5)];
+u_h8 = [pv_h8(end-1, 1) pv_h8(end-1, 3) pv_h8(end-1, 5)];
 
 disp("u_h: " + u_h);
 disp("u_h2: " + u_h2);
@@ -67,6 +78,7 @@ kvot2_y = abs(u_h2(2) - u_h4(2))/abs(u_h4(2) - u_h8(2));
 
 kvot1_z = abs(u_h(3) - u_h2(3))/abs(u_h2(3) - u_h4(3));
 kvot2_z = abs(u_h2(3) - u_h4(3))/abs(u_h4(3) - u_h8(3));
+
 
 kvot1 = abs(u_h - u_h2)/abs(u_h2 - u_h4);
 kvot2 = abs(u_h2 - u_h4)/abs(u_h4 - u_h8);

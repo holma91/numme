@@ -12,9 +12,9 @@ derivata = @(t,v) [v(2); -q(v)*v(2); v(4); -q(v)*(v(4) - a(v)); v(6); -(9.81+(q(
 
 t0 = 0;
 
-h = 0.005;
+h = 0.01;
 
-t = 4;
+t = 1;
 
 totalReps = (t - t0)/h;
 
@@ -26,11 +26,11 @@ t = t0;
 
 savedResults = zeros(totalReps, 7);
 
-while currentReps < totalReps
+while currentReps < totalReps*2
     currentReps = currentReps + 1;
     k1 = derivata(t, v);
-    k2 = derivata(t+h, v + h*k1);
-    k3 = derivata(t+h, v + h*k2);
+    k2 = derivata(t+h, v + h/2*k1);
+    k3 = derivata(t+h, v + h/2*k2);
     k4 = derivata(t + h, v + h*k3);
     v = v + h*(k1 + 2*k2 + 2*k3 + k4)/6;
     savedResults(currentReps, 1:6) = v;
@@ -47,6 +47,17 @@ while currentReps < totalReps
         break
     end
 end
+
+hh = 0.019593967270485;
+hh2 = 0.019593980899921;
+hh4 = 0.019593981736271;
+
+disp(abs(hh-hh2)/abs(hh2-hh4));
+
+
+
+
+
 % x)
 % 18.6616
 % 18.6565

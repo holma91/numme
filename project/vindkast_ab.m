@@ -16,11 +16,11 @@ ff = @(u) [
 
 
 t0 = 0;
+h = 0.01/4;
 t = 1;
-N = 200;
-h = (T-t0)/N;
+N = (t - t0)/h;
 
-[plot_vec, nedslagsplats] = RK4(ff, uStart, t0, h, t, 2, N);
+[plot_vec, nedslagsplats] = RK4(ff, uStart, h, N);
 
 % a)
 plot3(plot_vec(:, 1), plot_vec(:, 3), plot_vec(:, 5), '-');
@@ -32,6 +32,14 @@ grid on;
 % b)
 disp("nedslagsplats:");
 disp(nedslagsplats);
+disp("vec:");
+% disp(plot_vec);
+% 
+% hh = 0.019593967270485;
+% hh2 = 0.019593980899920;
+% hh4 = 0.019593981736266;
+% disp(abs(hh - hh2)/abs(hh2 - hh4));
+
 
 
 
