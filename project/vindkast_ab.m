@@ -2,8 +2,7 @@ c = 0.069;
 v_vind = 5;
 a = @(u) v_vind + 0.25*(u(5));
 q = @(u) c*sqrt(u(2).^2 + (u(4) - a(u)).^2 + u(6).^2);
-uStart = [0, 25*cos(pi/6), 0, 0, 1.5, 25*sin(pi/6)]';
-
+uStart = [0; 25*cos(pi/6); 0; 0; 1.5; 25*sin(pi/6)];
 
 % system av ODEs
 ff = @(u) [
@@ -17,10 +16,11 @@ ff = @(u) [
 
 
 t0 = 0;
-h = 0.01;
-t = 4;
+t = 1;
+N = 200;
+h = (T-t0)/N;
 
-[plot_vec, nedslagsplats] = RK4(ff, uStart, t0, h, t, 2);
+[plot_vec, nedslagsplats] = RK4(ff, uStart, t0, h, t, 2, N);
 
 % a)
 plot3(plot_vec(:, 1), plot_vec(:, 3), plot_vec(:, 5), '-');

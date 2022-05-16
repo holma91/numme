@@ -36,8 +36,8 @@ while currentReps < totalReps
     xlabel "x", zlabel "z", ylabel "y"
     currentReps = currentReps + 1;
     k1 = derivata(t, v);
-    k2 = derivata(t+h/2, v + h/2*k1);
-    k3 = derivata(t+h/2, v + h/2*k2);
+    k2 = derivata(t+h, v + h*k1);
+    k3 = derivata(t+h, v + h*k2);
     k4 = derivata(t + h, v + h*k3);
     v = v + h*(k1 + 2*k2 + 2*k3 + k4)/6;
     savedResults(currentReps, 1:6) = v;
@@ -55,7 +55,9 @@ while currentReps < totalReps
             break
         end
     end
-
+% 22.269685005001350
+% 22.304335748665270
+% 22.310749478308754
     
 end
 a = 0;

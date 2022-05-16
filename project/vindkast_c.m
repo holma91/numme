@@ -35,8 +35,8 @@ function vinkel_1 = vindkast_c(v_vind, v0, plot_bana)
         vv1 = [x0; cos(vinkel_1) * cos(v_utkast) * v0; y0; -(sin(vinkel_1) * v0 * cos(v_utkast)); z0; sin(v_utkast)* v0];
     
         % gor rungekutta for varje vinkel
-        [~, nedslagsplats0] = RK4(ff, vv0, t0, h, t);
-        [plot_vec1, nedslagsplats1] = RK4(ff, vv1, t0, h, t);
+        [~, nedslagsplats0] = RK4(ff, vv0, t0, h, t, 2);
+        [plot_vec1, nedslagsplats1] = RK4(ff, vv1, t0, h, t, 2);
     
         % vilka y-varden landar vi pa?
         y_nedslag_0 = nedslagsplats0(2);
