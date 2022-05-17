@@ -40,6 +40,17 @@ disp("vec:");
 % hh4 = 0.019593981736266;
 % disp(abs(hh - hh2)/abs(hh2 - hh4));
 
+% f)
+v_vertikal = pi/3;
+v_medurs = pi/6;
+utkasthastighet = 15;
+[x0; cos(vinkel_0) * cos(v_utkast) * v0; y0; -(sin(vinkel_0) * v0 * cos(v_utkast)); z0; sin(v_utkast)* v0];
+uStart = [
+    0; utkasthastighet*cos(v_vertikal) * cos(v_medurs); 
+    0; -(sin(v_medurs) * v0 * cos(v_vertikal)); 
+    1.5; utkasthastighet*sin(v_vertikal)
+];
+
 
 
 
